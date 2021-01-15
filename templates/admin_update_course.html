@@ -1,0 +1,54 @@
+{% include 'Admin_welcome.html' %}
+{% block content %}
+    <style>
+        body{
+            background-image: url("{{ url_for('static',filename='/img/background.jpg') }}");
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+         #ui{
+            background-color: #333;
+            padding: 30px;
+             margin-top: 50px;
+             border-radius: 10px;
+             opacity: 0.8;
+        }
+    h4{
+        color: white;
+    }
+    h5{
+        color: green;
+
+    }
+
+    </style>
+
+    <div class="container">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="offset-md-4 col-lg-6" >
+                    <form action="/update_save_course" method="post" class="form-group">
+                        <div class="row">
+                            <div class="col-lg-7" id="ui">
+                                <h5 >{{ message }}</h5>
+                                <h4>Update Class Details </h4>
+                                <input type="hidden" value="{{ data[0] }}" name="c0">
+                                <input type="text" name="c1" class="form-control" placeholder="Course Name" value="{{ data[1] }}" required>
+                                <input type="text" name="c2" class="form-control" placeholder="Faculty Name" value="{{ data[2] }}" required>
+                                <input type="date" name="c3" class="form-control" value="{{ data[3] }}"required>
+                                <input type="time" name="c4" class="form-control" value="{{ data[4] }}" required >
+                                <input type="number" name="c5" class="form-control" value="{{ data[5] }}" placeholder="Fee" required>
+                                <input type="number" name="c6" class="form-control" value="{{ data[6] }}" placeholder="Duration" required>
+                                <button class="btn btn-primary" type="submit">Update</button>
+
+                             </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

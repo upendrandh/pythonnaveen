@@ -1,0 +1,19 @@
+{% extends "admincommon.html" %}
+{% block title %}
+    <title>Adminn Home page</title>
+{% endblock %}
+{% block nav %}
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+        <a class="nav-link" href="/new_class"><button type="button" class="btn btn-outline-primary">Schedule New Class </button><span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item active">
+        <a class="nav-link" href="/view_schedule"><button type="button" class="btn btn-outline-secondary" href="#">View All Scheduled Classes</button><span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item active">
+        <a class="nav-link" href="/admin"><button type="button" class="btn btn-outline-dark" href="/admin">Logout</button><span class="sr-only">(current)</span></a>
+      </li>
+{% endblock %}
+{% block home %}
+    href="/admin_home"
+{% endblock %}

@@ -1,0 +1,39 @@
+    {% extends 'admincommon.html' %}
+{% block content %}
+    <link href="../assets/dist/css/bootstrap.css" rel="stylesheet">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for("static",filename="css/signin.css") }}" rel="stylesheet">
+
+    <form class="form-signin" action="/validate_admin" method="post" >
+        {% if message %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{ message.error }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endif %}
+
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <input type="text" name="inputEmail" class="form-control" placeholder="Username" required autofocus >
+        <input type="password" name="inputPassword" class="form-control" placeholder="Password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+{% endblock %}

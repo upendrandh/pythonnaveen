@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+{% block content %}
+
+     <style>
+        body{
+            background-image: url("{{ url_for('static',filename='/img/background.jpg') }}");
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+         #ui{
+            background-color: #333;
+            padding: 30px;
+             margin-top: 50px;
+             border-radius: 10px;
+             opacity: 0.8;
+        }
+    h4{
+        color: white;
+    }
+    h5{
+        color: green;
+
+    }
+
+    </style>
+
+    <div class="container">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="offset-md-4 col-lg-6" >
+                    <form action="/save_student_data" method="post" class="form-group" onsubmit="return validate()">
+                        <div class="row">
+                            <div class="col-lg-7" id="ui">
+                                <h4>Enter your details</h4>
+                                <input type="text" name="sname" class="form-control" placeholder="Your Name"  required>
+                                <input type="text" name="cnomber" class="form-control" placeholder="Contact Number" required pattern="[7-9]{1}[0-9]{9}">
+                                <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                                <input type="password" name="password" class="form-control" id="password" placeholder="Password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$">
+                                <input type="password"  placeholder="Confirm Password" id="confirmPassword" class="form-control" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$">
+                                <button class="btn btn-primary" type="submit" style="text-align: center">Save</button>
+
+                             </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
